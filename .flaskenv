@@ -1,4 +1,4 @@
-FLASK_ENV=development
+FLASK_DEBUG=TRUE
 /*FLASK_ENV=production*/
 FLASK_APP=run.py
 FLASK_RUN_HOST=0.0.0.0

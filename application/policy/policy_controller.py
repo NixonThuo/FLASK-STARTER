@@ -4,7 +4,7 @@ from flask import Blueprint, request, jsonify
 policy = Blueprint('policy', __name__)
 
 
-@policy.route('/addpolicy', methods=('GET', 'POST'))
+@policy.route('/addpolicy', methods=['GET', 'POST'])
 def add_policy():
     if request.method == "POST":
         policy = request.json
@@ -14,19 +14,19 @@ def add_policy():
         return jsonify({"message": "should be POST request"})
 
 
-@policy.route('/addpolicy/<int:policyid>', methods=('POST'))
+@policy.route('/getpolicy/<int:policyid>', methods=['POST'])
 def get_policy(policyid):
     """policy chat page"""
     return "True"
 
 
-@policy.route('/deletepolicy/<int:policyid>', methods=('DELETE'))
+@policy.route('/deletepolicy/<int:policyid>', methods=['DELETE'])
 def delete_policy(policyid):
     """policy chat page"""
     return "True"
 
 
-@policy.route('/updatepolicy', methods=('POST'))
+@policy.route('/updatepolicy', methods=['POST'])
 def update_policy(policyid):
     if request.method == "POST":
         policy = request.json
