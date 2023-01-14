@@ -1,5 +1,5 @@
 """policy blueprint"""
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, render_template
 
 policy = Blueprint('policy', __name__)
 
@@ -11,7 +11,7 @@ def add_policy():
         print(policy)
         return jsonify({"success": True, "policy": policy})
     else:
-        return jsonify({"message": "should be POST request"})
+        return render_template("policy/index.html")
 
 
 @policy.route('/getpolicy/<int:policyid>', methods=['POST'])
