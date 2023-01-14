@@ -7,6 +7,7 @@ class Config(object):
     DBNAME = "policy_bot"
     SQLALCHEMY_DATABASE_URI = "mysql://{}:{}@{}:{}/{}".format(
         DBUSERNAME, DBPASSWORD, HOST, PORT, DBNAME)
+    WTF_CSRF_ENABLED = False
 
 
 class ProductionConfig(Config):
