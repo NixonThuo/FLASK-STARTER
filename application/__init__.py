@@ -3,9 +3,11 @@ from flask import Flask
 from application.login.login_controller import login
 from application.policy.policy_controller import policy
 from flask_wtf import CSRFProtect
+from flask_sqlalchemy import SQLAlchemy
+
 
 app = Flask(__name__)
-
+db = SQLAlchemy()
 csrf = CSRFProtect()
 
 
@@ -18,6 +20,11 @@ def something():
         app.config.from_object("application.config.TestingConfig")
     else:
         app.config.from_object("application.config.DevelopmentConfig")
+
+    with app.app_context():
+        db.init_app(app)
+
+    print(app.config)
 
     csrf.init_app(app)
 

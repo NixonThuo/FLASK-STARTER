@@ -1,5 +1,12 @@
 class Config(object):
-    SECRET_KEY = "veryuniquekey"
+    HOST = "localhost"
+    PORT = "3306"
+    SECRET_KEY = "randomstuff"
+    DBUSERNAME = "root"
+    DBPASSWORD = "fiverr@2030"
+    DBNAME = "policy_bot"
+    SQLALCHEMY_DATABASE_URI = "mysql://{}:{}@{}:{}/{}".format(
+        DBUSERNAME, DBPASSWORD, HOST, PORT, DBNAME)
 
 
 class ProductionConfig(Config):
