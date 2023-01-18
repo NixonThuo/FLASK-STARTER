@@ -12,14 +12,25 @@
 <body>
     <div class="row justify-content-center">
         <div class="col col-8 mt-4">
-            <form>
+            <form id="policyform" name="policyform" method="POST" action="{{ url_for('policy.add_policy') }}">
                 <div class="mb-3">
                     <label for="accountid" class="form-label">Account ID</label>
-                    <input type="text" class="form-control" id="accountid" name="accountid" placeholder="account id">
+                    <select class="form-select form-select-sm" id="accountid" name="accountid">
+                        <option selected>Choose Account</option>
+                        {% for account in accounts %}
+                        <option value="{{ account.accountid }}">{{ account.name }}</option>
+                        {% endfor %}
+                    </select>
                 </div>
                 <div class="mb-3">
                     <label for="policytype" class="form-label">Policy Type</label>
-                    <input type="text" class="form-control" id="policytype" name="policytype" placeholder="policy type">
+                    <select class="form-select form-select-sm" id="policytype" name="policytype">
+                        <option selected>Choose policy here</option>
+                        <option value="company">Company</option>
+                        <option value="return">Return</option>
+                        <option value="product">Product</option>
+                        <option value="other">Other</option>
+                    </select>
                 </div>
                 <div class="d-grid gap-2">
                     <button class="btn btn-primary" type="submit">Save</button>
@@ -39,5 +50,12 @@
 <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"
     integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
     crossorigin="anonymous"></script>
+<script>
+    $("#test").submit(function (e) {
+        e.preventDefault();
+        var formdata = FormData();
+        formdata.append();
+    });
+</script>
 
 </html>

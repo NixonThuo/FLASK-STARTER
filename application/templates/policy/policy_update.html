@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>POLICY BOT</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="row justify-content-center">
+        <div class="col col-8 mt-4">
+            <form id="policyform" name="policyform" method="POST" action="{{ url_for('policy.update_policy') }}">
+                <input type="hidden" class="form-control" id="policyid" name="policyid" value="{{ policy.policyid }}">
+                <div class="mb-3">
+                    <label for="accountid" class="form-label">Account ID</label>
+                    <select class="form-select form-select-sm" id="accountid" name="accountid">
+                        <option selected value="{{ selectedaccount.accountid }}">{{ selectedaccount.name }}</option>
+                        {% for account in accounts %}
+                        <option value="{{ account.accountid }}">{{ account.name }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="policytype" class="form-label">Policy Type</label>
+                    <select class="form-select form-select-sm" id="policytype" name="policytype">
+                        <option selected value="{{ policy.policytype }}">{{ policy.policytype }}</option>
+                        <option value="company">Company</option>
+                        <option value="return">Return</option>
+                        <option value="product">Product</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <div class="d-grid gap-2">
+                    <button class="btn btn-primary" type="submit">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="{{ url_for('static', filename='js/jquery-3.6.3.min.js') }}" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='js/popper.min.js') }}"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+    crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"
+    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+    crossorigin="anonymous"></script>
+<script>
+    $("#test").submit(function (e) {
+        e.preventDefault();
+        var formdata = FormData();
+        formdata.append();
+    });
+</script>
+
+</html>

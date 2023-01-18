@@ -5,21 +5,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>POLICY BOT</title>
-    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet"
-        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" crossorigin="anonymous">
 </head>
 
 <body>
     <div class="row justify-content-center">
         <div class="col col-8 mt-4">
-            <form>
+            <form id="policyform" name="policyform" method="POST" action="{{ url_for('accounts.add_account') }}">
                 <div class="mb-3">
                     <label for="name" class="form-label">Name</label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="name">
                 </div>
                 <div class="mb-3">
-                    <label for="address" class="form-label">Name</label>
-                    <input type="text" class="form-control" id="name" name="name" placeholder="name">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="address" name="address" placeholder="address">
                 </div>
                 <div class="mb-3">
                     <label for="email" class="form-label">Email</label>
@@ -29,7 +28,12 @@
                     <label for="phone" class="form-label">Phone</label>
                     <input type="text" class="form-control" id="phone" name="phone">
                 </div>
-                <div class="d-grid gap-2">
+                <select class="form-select form-select-sm" id="status" name="status" required>
+                    <option selected>Choose status here</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+                <div class="d-grid gap-2 mt-3">
                     <button class="btn btn-primary" type="submit">Save</button>
                 </div>
             </form>
@@ -38,14 +42,8 @@
 </body>
 <script src="{{ url_for('static', filename='js/jquery-3.6.3.min.js') }}" crossorigin="anonymous"></script>
 <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
-<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}"
-    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-    crossorigin="anonymous"></script>
-<script src="{{ url_for('static', filename='js/popper.min.js') }}"
-    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
-    crossorigin="anonymous"></script>
-<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"
-    integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
-    crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='js/popper.min.js') }}" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}" crossorigin="anonymous"></script>
 
 </html>

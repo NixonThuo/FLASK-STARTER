@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>POLICY BOT</title>
+    <link href="{{ url_for('static', filename='css/bootstrap.min.css') }}" rel="stylesheet" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="row justify-content-center">
+        <div class="col col-8 mt-4">
+            <form id="policyform" name="policyform" method="POST" action="{{ url_for('accounts.update_account') }}">
+                <input type="hidden" class="form-control" id="accountid" name="accountid" placeholder="name"
+                    value="{{ account.accountid }}">
+                <div class="mb-3">
+                    <label for="name" class="form-label">Name</label>
+                    <input type="text" class="form-control" id="name" name="name" placeholder="name"
+                        value="{{ account.name }}">
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <input type="text" class="form-control" id="address" name="address" placeholder="address"
+                        value="{{ account.address }}">
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" value="{{ account.email }}">
+                </div>
+                <div class="mb-3">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="text" class="form-control" id="phone" name="phone" value="{{ account.phone }}">
+                </div>
+                <select class="form-select form-select-sm" id="status" name="status" required>
+                    <option value="{{ account.status }}" selected>{{ account.status }}</option>
+                    <option value="active">Active</option>
+                    <option value="inactive">Inactive</option>
+                </select>
+                <div class="d-grid gap-2 mt-3">
+                    <button class="btn btn-primary" type="submit">update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+<script src="{{ url_for('static', filename='js/jquery-3.6.3.min.js') }}" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.bundle.min.js') }}" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='js/popper.min.js') }}" crossorigin="anonymous"></script>
+<script src="{{ url_for('static', filename='js/bootstrap.min.js') }}" crossorigin="anonymous"></script>
+
+</html>
